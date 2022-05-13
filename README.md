@@ -107,20 +107,27 @@ Now we should have `node_modules` in `lambda` directory.
 
 5. Now ZIP the all contents of `lambda` directory into single ZIP file. Make sure you only zip the contents inside a directory, but not the directory itself.
 
-6. Register account at AWS Amazon and open this [link](https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/create/function) to create Lambda function. Fill the details about Lambda function like this: (prva slika)
+6. Register account at AWS Amazon and open this [link](https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/create/function) to create Lambda function. Fill the details about Lambda function like this:
+
+![1](https://user-images.githubusercontent.com/24723870/168178920-043ae6d8-ea4e-46f1-b8e2-62e98865d302.png)
 
 7. Open 'Code' section and click 'Upload from' and upload ZIP file from step 5.
-(slika 6 step)
+
+![2](https://user-images.githubusercontent.com/24723870/161564237-2baf344e-2eff-4735-909a-e7ee8a637af0.png)
 
 8. Open 'Configuration' section and click on 'Create function URL'. 
-(druga slika)
+
+![2](https://user-images.githubusercontent.com/24723870/168179059-97b98685-9c53-4e29-bc7a-a354ede47eb4.png)
 
 Fill the details like this:
-(treca slika)
+
+![3](https://user-images.githubusercontent.com/24723870/168179079-cd4d0696-a957-45d6-b990-737cda29415f.png)
 
 In this example I allowed any origin to access this URL (Allow origin: *), but in production you should probably enter URL of web app which will call this lambda function. We can also change this afterwards.
 
 9. Now you can see function URL on main screen which we will use for requests.
+
+![4](https://user-images.githubusercontent.com/24723870/168179139-65748462-7086-4a90-bcb6-7499b071d94e.png)
 
 In my example, function URL is:
 https://znsvtnv62wgs267ytblixc3pzq0ovwse.lambda-url.us-east-1.on.aws/
