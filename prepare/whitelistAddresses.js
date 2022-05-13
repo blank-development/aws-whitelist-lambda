@@ -12,6 +12,8 @@ const whitelistedAddresses_1 = [
   "0x78e7C4C88d44aD2178a2Cf5cC8883a761996e2E9", // Real EOA 3 (Mirko)
   "0x3b7d556B0377Bfd58Eb50480157f39De4caEFCb7", // Real EOA 4 (Mirko)
   "0x54963F77B1f5b8CB518360B4D535d88f2504732F", // Real EOA 5 (Mirko)
+  "0x5f3F227A6DaC5c01C7decfE36AF8640540514eCb",
+  "0x5f148706ce473A637146D13bdE23F4160D1F0F62",
 ];
 
 const whitelistedAddresses_2 = [
@@ -28,6 +30,8 @@ const whitelistedAddresses_2 = [
   "0x1C892e4516Dc5c46402C1319721Df0Ec3BABECDB", // Real EOA 8 (Mirko)
   "0x7DF1772F72eb74cAeb5479Da321Eec690Bea81b4", // Real EOA 9 (Mirko)
   "0x5B7F0A18AB374ea3A4904a6214872A81d91C0d98", // Real EOA 10 (Mirko)
+  "0x85eCAce33b767b5D7f45AEBF4671b45E96D7fe5E",
+  "0xF15B146d0251dB2fA9a4170fFFd6d587e009694A",
 ];
 
 module.exports = {
