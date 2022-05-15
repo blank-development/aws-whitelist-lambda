@@ -11,11 +11,11 @@ exports.handler = async (event) => {
   let proof;
 
   switch (phase) {
-    case "1":
+    case "0":
       const tree_1 = new MerkleTree(leaves_1, keccak256, { sortPairs: true });
       proof = tree_1.getHexProof(leaf);
       break;
-    case "2":
+    case "1":
       const tree_2 = new MerkleTree(leaves_2, keccak256, { sortPairs: true });
       const proof_temp = tree_2.getHexProof(leaf);
       if (proof_temp.length !== 0) {

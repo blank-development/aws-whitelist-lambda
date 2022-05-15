@@ -132,13 +132,13 @@ In this example I allowed any origin to access this URL (Allow origin: *), but i
 In my example, function URL is:
 https://znsvtnv62wgs267ytblixc3pzq0ovwse.lambda-url.us-east-1.on.aws/
 
-For parameters we need to provide address for which we need merkle proof and phase number. If contract is in first whitelist mint phase then provide "1", if contract is in second whitelist mint phase then provide "2". 
+For parameters we need to provide address for which we need merkle proof and phase number. If contract is in first whitelist mint phase then provide "0", if contract is in second whitelist mint phase then provide "1". 
 
-If contract is in public mint phase you can provide any number except "1" or "2", but it would be probably best to use hardcoded empty array from frontend instead of calling AWS Lambda function.
+If contract is in public mint phase you can provide any number except "0" or "1", but it would be probably best to use hardcoded empty array from frontend instead of calling AWS Lambda function.
 
 For example I want to get proof for address "0xd7Dc45eEBc152A608019e4c2bA5525a61F80f69c" and contract is currently in second whitelist mint phase, so I need to call this URL:
 
-https://znsvtnv62wgs267ytblixc3pzq0ovwse.lambda-url.us-east-1.on.aws/?address=0xd7Dc45eEBc152A608019e4c2bA5525a61F80f69c&phase=2
+https://znsvtnv62wgs267ytblixc3pzq0ovwse.lambda-url.us-east-1.on.aws/?address=0xd7Dc45eEBc152A608019e4c2bA5525a61F80f69c&phase=1
 
 For this example Lambda function will return this:
 ```
@@ -146,7 +146,7 @@ For this example Lambda function will return this:
     "0x5fb55195fbdf04715ab1b4e7eeaceaf6fa713b2dbea9d1d60ff99872b2c31c54",
     "0x6b6405ecca7e3dac39157631bba2cb709690f50f612e9b7f0ef4af09f4f9d5fe",
     "0xa774aa8fd9e9b8ee069034e3dbd74974261ea5e4d21d19c898e1bbfc61b0e96d",
-    "0x4a0ea49c632116610ea881ce8f863c747ef97d4800f0c31fa06ffeb4cc81b0d1"
+    "0xb75632e894204021a1a48fd723f35f11a8eb97f8d125d054cbf2c0f2207e145c"
 ]
 ```
 
