@@ -56,7 +56,7 @@ module.exports = {
 
 This script will create two text files (`leaves_1.txt` and `leaves_2.txt`) in `prepare` directory with generated leaves.
 
-3. Open `lambda/leaves.js` and now we need to paste leaves from previous step. Assign contents from `leaves_1.txt` to `exports.leaves_1`, and `leaves_2.txt` to `exports.leaves_2`. 
+3. Open `multiple-whitelists-lambda/leaves.js` and now we need to paste leaves from previous step. Assign contents from `leaves_1.txt` to `exports.leaves_1`, and `leaves_2.txt` to `exports.leaves_2`. 
 
 It should look similar to this:
 ```
@@ -97,15 +97,15 @@ exports.leaves_2 = [
 ];
 ```
 
-4. We need to install dependencies in `lambda` directory by running commands:
+4. We need to install dependencies in `multiple-whitelists-lambda` directory by running commands:
 ```
-cd lambda
+cd multiple-whitelists-lambda
 yarn
 ```
 
-Now we should have `node_modules` in `lambda` directory.
+Now we should have `node_modules` in `multiple-whitelists-lambda` directory.
 
-5. Now ZIP the all contents of `lambda` directory into single ZIP file. Make sure you only zip the contents inside a directory, but not the directory itself.
+5. Now ZIP the all contents of `multiple-whitelists-lambda` directory into single ZIP file. Make sure you only zip the contents inside a directory, but not the directory itself.
 
 6. Register account at AWS Amazon and open this [link](https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/create/function) to create Lambda function. Fill the details about Lambda function like this:
 
