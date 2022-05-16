@@ -4,11 +4,7 @@ This lambda function returns Merkle proof using single whitelist.
 
 ## Deploy procedure
 
-1. Install dependencies:
-
-`yarn`
-
-2. You need to have all addresses that you want to have on a whitelist. Addresses must be in the form of an array. We need to enter them into `prepare/whitelistAddresses.js` file. If you already deployed contract, we can reuse `prepare/whitelistAddresses.js` from contracts repo, it will be exactly same file here.
+1. You need to have all addresses that you want to have on a whitelist. Addresses must be in the form of an array. We need to enter them into `prepare/whitelistAddresses.js` file. If you already deployed contract, we can reuse `prepare/whitelistAddresses.js` from contracts repo, it will be exactly same file here.
 
 In my example it looks like this:
 ```
@@ -32,13 +28,13 @@ module.exports = {
 };
 ```
 
-3. Now run this command to generate leaves:
+2. Now run this command to generate leaves:
 
 `node prepare/generateLeaves.js`
 
 This script will create one text file (`leaves.txt`) in `prepare` directory with generated leaves.
 
-4. Open `lambda/leaves.js` and paste leaves from previous step into this file. Asiign contents to `exports.leaves`. It should look something like this:
+3. Open `lambda/leaves.js` and paste leaves from previous step into this file. Asiign contents to `exports.leaves`. It should look something like this:
 ```
 exports.leaves = [
   "8a3552d60a98e0ade765adddad0a2e420ca9b1eef5f326ba7ab860bb4ea72c94",
@@ -56,7 +52,7 @@ exports.leaves = [
 ];
 ```
 
-5. Install dependencies in `lambda` directory by running commands:
+4. Install dependencies in `lambda` directory by running commands:
 ```
 cd lambda
 yarn
@@ -64,17 +60,17 @@ yarn
 
 Now you should have `node_modules` directory in `lambda` directory.
 
-6. Now ZIP the all contents of `lambda` directory into single ZIP file. Make sure you only zip the contents inside a directory, but not the directory itself.
+5. Now ZIP the all contents of `lambda` directory into single ZIP file. Make sure you only zip the contents inside a directory, but not the directory itself.
 
-7. Register account at AWS Amazon and open this [link](https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/create/function) to create Lambda function. Fill the details about Lambda function like this:
+6. Register account at AWS Amazon and open this [link](https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/create/function) to create Lambda function. Fill the details about Lambda function like this:
 
 ![1](https://user-images.githubusercontent.com/24723870/168178920-043ae6d8-ea4e-46f1-b8e2-62e98865d302.png)
 
-8. Open 'Code' section and click 'Upload from' and upload ZIP file from step 5.
+7. Open 'Code' section and click 'Upload from' and upload ZIP file from step 5.
 
 ![2](https://user-images.githubusercontent.com/24723870/161564237-2baf344e-2eff-4735-909a-e7ee8a637af0.png)
 
-9. Open 'Configuration' section and click on 'Create function URL'. 
+8. Open 'Configuration' section and click on 'Create function URL'. 
 
 ![2](https://user-images.githubusercontent.com/24723870/168179059-97b98685-9c53-4e29-bc7a-a354ede47eb4.png)
 
@@ -84,11 +80,11 @@ Fill the details like this:
 
 In this example I allowed any origin to access this URL (Allow origin: *), but in production you should probably enter URL of web app which will call this lambda function. We can also change this afterwards.
 
-10. Now you can see function URL on main screen which we will use for requests.
+9. Now you can see function URL on main screen which we will use for requests.
 
 ![4](https://user-images.githubusercontent.com/24723870/168179139-65748462-7086-4a90-bcb6-7499b071d94e.png)
 
-11. Test Lambda function by adding ?address=someAddress to API endpoint URL.
+10. Test Lambda function by adding ?address=someAddress to API endpoint URL.
 
 You can test my Lambda function with this URL:
 
@@ -101,7 +97,10 @@ https://vyy9wvji23.execute-api.us-east-1.amazonaws.com/default/merkle-proof-func
 In this exmaple Lambda function will return this:
 ```
 [
-    "0x1ebaa930b8e9130423c183bf38b0564b0103180b7dad301013b18e59880541ae","0x6336b25c865cb80c984138362af0af839c3dff755af39369182f2a9e85a91fb0","0xf35061f4a828499380303b6f4e824c0019c2f62441b80768220be1fc313d6cf0","0x5bbf061dfbd327dcf1d6e18cbec26eb55f8fcbf4e2b042afb6706751a884c610"
+    "0x1ebaa930b8e9130423c183bf38b0564b0103180b7dad301013b18e59880541ae",
+    "0x6336b25c865cb80c984138362af0af839c3dff755af39369182f2a9e85a91fb0",
+    "0xf35061f4a828499380303b6f4e824c0019c2f62441b80768220be1fc313d6cf0",
+    "0x5bbf061dfbd327dcf1d6e18cbec26eb55f8fcbf4e2b042afb6706751a884c610"
 ]
 ```
 

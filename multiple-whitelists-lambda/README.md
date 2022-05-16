@@ -4,11 +4,7 @@ This lambda function returns Merkle proofs using two whitelists.
 
 ## Deploy procedure
 
-1. Install dependencies:
-
-`yarn`
-
-2. You need to have all addresses that you want to have in first whitelist and the second whitelist. We need to enter them into `prepare/whitelistAddresses.js` file. If you already deployed contract, we can reuse `prepare/whitelistAddresses.js` from contracts repo, it will be exactly same file here.
+1. You need to have all addresses that you want to have in first whitelist and the second whitelist. We need to enter them into `prepare/whitelistAddresses.js` file. If you already deployed contract, we can reuse `prepare/whitelistAddresses.js` from contracts repo, it will be exactly same file here.
 
 In my example it looks like this:
 ```
@@ -54,13 +50,13 @@ module.exports = {
 };
 ```
 
-3. Now run this command to generate leaves:
+2. Now run this command to generate leaves:
 
 `node prepare/generateLeaves.js`
 
 This script will create two text files (`leaves_1.txt` and `leaves_2.txt`) in `prepare` directory with generated leaves.
 
-4. Open `lambda/leaves.js` and now we need to paste leaves from previous step. Assign contents from `leaves_1.txt` to `exports.leaves_1`, and `leaves_2.txt` to `exports.leaves_2`. 
+3. Open `lambda/leaves.js` and now we need to paste leaves from previous step. Assign contents from `leaves_1.txt` to `exports.leaves_1`, and `leaves_2.txt` to `exports.leaves_2`. 
 
 It should look similar to this:
 ```
@@ -101,7 +97,7 @@ exports.leaves_2 = [
 ];
 ```
 
-5. We need to install dependencies in `lambda` directory by running commands:
+4. We need to install dependencies in `lambda` directory by running commands:
 ```
 cd lambda
 yarn
@@ -109,17 +105,17 @@ yarn
 
 Now we should have `node_modules` in `lambda` directory.
 
-6. Now ZIP the all contents of `lambda` directory into single ZIP file. Make sure you only zip the contents inside a directory, but not the directory itself.
+5. Now ZIP the all contents of `lambda` directory into single ZIP file. Make sure you only zip the contents inside a directory, but not the directory itself.
 
-7. Register account at AWS Amazon and open this [link](https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/create/function) to create Lambda function. Fill the details about Lambda function like this:
+6. Register account at AWS Amazon and open this [link](https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/create/function) to create Lambda function. Fill the details about Lambda function like this:
 
 ![1](https://user-images.githubusercontent.com/24723870/168178920-043ae6d8-ea4e-46f1-b8e2-62e98865d302.png)
 
-8. Open 'Code' section and click 'Upload from' and upload ZIP file from step 5.
+7. Open 'Code' section and click 'Upload from' and upload ZIP file from step 5.
 
 ![2](https://user-images.githubusercontent.com/24723870/161564237-2baf344e-2eff-4735-909a-e7ee8a637af0.png)
 
-9. Open 'Configuration' section and click on 'Create function URL'. 
+8. Open 'Configuration' section and click on 'Create function URL'. 
 
 ![2](https://user-images.githubusercontent.com/24723870/168179059-97b98685-9c53-4e29-bc7a-a354ede47eb4.png)
 
@@ -129,9 +125,12 @@ Fill the details like this:
 
 In this example I allowed any origin to access this URL (Allow origin: *), but in production you should probably enter URL of web app which will call this lambda function. We can also change this afterwards.
 
-10. Now you can see function URL on main screen which we will use for requests.
+9. Now you can see function URL on main screen which we will use for requests.
 
 ![4](https://user-images.githubusercontent.com/24723870/168179139-65748462-7086-4a90-bcb6-7499b071d94e.png)
+
+
+10. Test Lambda function.
 
 In my example, function URL is:
 https://znsvtnv62wgs267ytblixc3pzq0ovwse.lambda-url.us-east-1.on.aws/
