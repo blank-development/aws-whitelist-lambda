@@ -1,8 +1,6 @@
 # AWS Whitelist Lambda
 
-Install dependencies:
-
-`yarn`
+Lambdas used for crypto collection whitelisting.
 
 ## Lambda functions
 
